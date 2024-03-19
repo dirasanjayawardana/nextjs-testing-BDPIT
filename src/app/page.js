@@ -1,5 +1,6 @@
 "use client";
 import Card from "@/components/Card";
+import Table from "@/components/Table";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -22,7 +23,6 @@ export default function Home() {
     return (
         <div className="min-h-[100vh] bg-white flex flex-col items-center">
             Landing page
-
             {/* contoh pindah halaman dengan useRouter */}
             <button
                 onClick={() => router.push("/page2")}
@@ -30,7 +30,6 @@ export default function Home() {
             >
                 page 2
             </button>
-
             {/* contoh pindah halaman dengan Link */}
             <Link href="/page3">
                 <button className="p-2 bg-gray-500 rounded-xl mt-2 text-white">
@@ -42,7 +41,6 @@ export default function Home() {
                     Login
                 </button>
             </Link>
-
             {/* contoh looping */}
             <div className="grid grid-cols-3 gap-3 mt-2">
                 {data.map((item, index) => (
@@ -51,13 +49,19 @@ export default function Home() {
                     </div>
                 ))}
             </div>
-
             {/* contoh looping list */}
-            <ul className="mt-2 flex flex-col gap-2 w-80">
+            <ul className="mt-2 flex flex-col gap-2 w-80 mb-5">
                 {data.map((item, index) => (
-                    <li key={index} className="bg-blue-600 p-2 text-white rounded-md w-full">{item.name}</li>
+                    <li
+                        key={index}
+                        className="bg-blue-600 p-2 text-white rounded-md w-full"
+                    >
+                        {item.name}
+                    </li>
                 ))}
             </ul>
+            {/* contoh table */}
+            <Table />
         </div>
     );
 }
